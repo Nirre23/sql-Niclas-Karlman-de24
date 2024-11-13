@@ -3,6 +3,6 @@ CREATE TABLE IF NOT EXISTS funny_jokes (
 	joke_text VARCHAR,
 	rating INTEGER
 );
-SELECT * FROM funny_jokes;
+
 
 

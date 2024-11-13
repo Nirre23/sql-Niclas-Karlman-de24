@@ -1,2 +1,1 @@
-DELETE FROM main.ovning1
-WHERE id > -1
+DELETE FROM main.ovning1 where id = 2;

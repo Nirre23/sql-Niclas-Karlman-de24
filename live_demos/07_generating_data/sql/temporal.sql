@@ -16,5 +16,12 @@ FROM
 	generate_series(date '2024-1-01',
 	date '2024-12-31',
 	interval '1 day') as t(date_series);
+
+SELECT
+	*
+from
+	generate_series(date '2024-11-1',
+	date '2024-11-30',
+	interval '1 day') as t(november);
 	
 

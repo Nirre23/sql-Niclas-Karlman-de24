@@ -40,6 +40,8 @@ group by
 	year
 order by
 	total_searches desc;
+DESC;
+
 
 
 

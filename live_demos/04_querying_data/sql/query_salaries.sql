@@ -33,3 +33,33 @@ SELECT
 FROM
 	main.data_jobs dj ;
 
+
+SELECT * FROM main.data_jobs;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

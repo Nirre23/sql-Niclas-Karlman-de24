@@ -16,7 +16,8 @@ name));
 SELECT
 	FLOOR(random()* 6 + 1) as dice,
 from
-	generate_series(100-1);
+	generate_series(9),
+select(COUNT(AVG(dice)) where dice = 6 ;
 
 SELECT
 	UNNEST (generate_series(1,
@@ -43,4 +44,26 @@ FROM
 	generate_series(date '2024-1-01',
 	date '2024-12-31',
 	interval 1 day) as t(date_series));
+SELECT * from people_records;
+INSERT
+	into
+	people_records(id,
+	name)
+	values(4,'Josefine')
 	
+select random from generate_series;	
+
+SELECT
+count(dice) as count_of_6,
+	avg(dice) as avg_six
+from
+	(
+	select
+		FLOOR(random()* 6 + 1) as dice
+	from
+		generate_series(1,
+		100000)
+		) subquery
+where
+	dice = 6;
+

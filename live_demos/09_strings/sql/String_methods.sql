@@ -41,7 +41,14 @@ SELECT
 FROM
 	staging.sql_glossary sg
 
+	SELECT * from staging.sql_glossary sg 
 
+SELECT
+	trim(UPPER(sql_word)) as word from staging.sql_glossary;
 
-
-
+SELECT
+	CONCAT(upper(left(TRIM(sql_word),1)),
+	(lower(substring(TRIM(sql_word),2)))
+	) as word_fixed
+from	
+	staging.sql_glossary sg 

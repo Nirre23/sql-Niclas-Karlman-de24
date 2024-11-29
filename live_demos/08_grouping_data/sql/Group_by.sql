@@ -25,7 +25,7 @@ ORDER BY
 -- MOST PUPOLAR FOOD IN SUMMER 
 SELECT
 	food
-	where week b
+	where week beetween 
 from
 	main.cleaned_food;
 
@@ -42,6 +42,8 @@ order by
 	total_searches desc;
 DESC;
 
+
+SELECT * from cleaned_food;
 
 
 

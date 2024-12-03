@@ -41,3 +41,45 @@ SELECT * from main.customer c where LOWER(left(first_name,2)) in ('an');
 
 SELECT 'customer' as type ,c.first_name, c.last_name from main.customer c WHERE c.first_name LIKE 'D%';
 
+SELECT * FROM main.actor a 
+
+SELECT * FROM main.film f ;
+DESC TABLE main.film ;
+
+SELECT COUNT(*) AS movies FROM main.film f  
+
+SELECT * FROM main.customer c 
+
+SELECT store_id, COUNT(*) AS number_customers FROM main.customer c
+GROUP BY store_id ORDER BY store_id ASC;
+
+SELECT * FROM main.store s 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

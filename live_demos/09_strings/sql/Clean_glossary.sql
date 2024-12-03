@@ -1,35 +1,18 @@
 CREATE SCHEMA IF NOT EXISTS refined;
 
-CREATE TABLE IF NOT EXISTS refined.sql_glossary AS (
-SELECT
-	UPPER(TRIM(sql_word)) AS sql_word,
-	UPPER(TRIM(regexp_replace(description, ' +', ' ', 'g'))) AS description,
-	UPPER(TRIM(regexp_replace(example, ' +', ' ', 'g'))) AS example
-FROM
-	staging.sql_glossary
-);
-
-SELECT
-	*
+CREATE Table if not exists refined.sql_glossary as 
+(
+select
+	UPPER(TRIM(sql_word)) as sql_word,
+	regexp_replace(trim(description),
+	' +',
+	' ',
+	' g') as description,
+	regexp_replace(trim(example),
+	' +',
+	' ',
+	'g') as example
 from
-	refined.sql_glossary;
-
-UPDATE
-	refined.sql_glossary
-SET
-	description = regexp_replace(trim(UPPER(description)),
-	' +',
-	' ',
-	'g'),
-	example = regexp_replace(trim(UPPER(example)),
-	' +',
-	' ',
-	'g');
-
-a
-    
-    UPDATE
-	refined.sql_glossary
-SET
-	description = UPPER(SUBSTRING(description, 1, 1)) || LOWER(SUBSTRING(description, 2)),
-	example = UPPER(SUBSTRING(example, 1, 1)) || LOWER(SUBSTRING(example, 2));
+	staging.sql_glossary sg);
+	
+SELECT * FROM refined.sql_glossary sg; 

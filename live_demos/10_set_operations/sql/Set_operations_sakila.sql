@@ -67,6 +67,30 @@ where
 	a.first_name like 'J%'
 	and a.last_name like 'D%';
 
+-- combine customers and actors into one table
+
+SELECT
+	c.first_name,
+	c.last_name
+from
+	main.customer c
+INTERSECT 
+SELECT
+	a.first_name,
+	a.last_name
+from
+	main.actor a
+	
+	
+SELECT
+	a.first_name,
+	a.last_name
+from
+	main.actor a
+WHERE
+	a.first_name like 'J%'
+	and a.last_name like 'D%'; 
+
 
 
 	

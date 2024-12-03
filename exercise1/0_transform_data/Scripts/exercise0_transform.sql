@@ -152,16 +152,116 @@ FROM
 
 SELECT * FROM main.cs c ;
 
+SELECT
+	CASE
+	WHEN trim(lower(employment_type)) = 'ft' THEN 'Full time'
+	WHEN trim(lower(employment_type)) = 'pt' THEN 'Part time'
+	WHEN trim(lower(employment_type)) = 'ct' THEN 'Contract'
+	WHEN trim(lower(employment_type)) = 'fl' THEN 'Freelance'
+	ELSE employment_type
+END AS employment_type
+FROM
+main.NEW n 
+
+UPDATE
+	main.NEW
+SET
+	employment_type = CASE
+		WHEN trim(lower(employment_type)) = 'ft' THEN 'Full time'
+		WHEN trim(lower(employment_type)) = 'pt' THEN 'Part time'
+		WHEN trim(lower(employment_type)) = 'ct' THEN 'Contract'
+		WHEN trim(lower(employment_type)) = 'fl' THEN 'Freelance'
+		ELSE employment_type
+	END;
+
+SELECT employment_type FROM main.NEW n 
+
+SELECT
+	CASE
+		WHEN company_size = 'S' THEN 'Small'
+		WHEN company_size = 'M' THEN 'Medium'
+		WHEN company_size = 'L' THEN 'Large'
+		ELSE company_size 
+	END AS company_size
+FROM
+	main.NEW n 
+
+	SELECT DISTINCT company_size FROM main.NEW n
+	
+UPDATE main.NEW SET
+	company_size = CASE
+		WHEN company_size = 'S' THEN 'Small'
+		WHEN company_size = 'M' THEN 'Medium'
+		WHEN company_size = 'L' THEN 'Large'
+		ELSE company_size
+END;
+
+SELECT
+	DISTINCT company_size
+FROM
+	main.NEW n 
+
+SELECT
+	salary_in_usd * 10.9 AS sek_year,
+	ROUND(sek_year/12) AS sek_m,
+FROM
+	main.NEW n ;
+
+ALTER TABLE main.NEW Drop COLUMN sek_year;
 
 
 
+SELECT * FROM main.NEW n ;
 
+SELECT sek_m FROM main.NEW n; 
 
+UPDATE
+	main.NEW 
+SET
+	sek_year = salary_in_usd * 10.9,
+	sek_m = (salary_in_usd*10.9)/12;
 
+SELECT sek_m, sek_year FROM main.NEW n 
 
+SELECT sek_m,
+	CASE
+		WHEN sek_m < 93000 THEN 'Low'
+		WHEN sek_m < 120000 THEN 'Medium'
+		WHEN sek_m < 170000THEN 'High'
+		ELSE 'Insanely high'
+		END AS salary_level
+		FROM main.NEW n ;
+	
+UPDATE
+	main.NEW
+SET
+	salary_level = CASE
+		WHEN sek_m < 93000 THEN 'Low'
+		WHEN sek_m < 120000 THEN 'Medium'
+		WHEN sek_m < 170000 THEN 'High'
+		ELSE 'Insanely high'
+	END;
 
+SELECT
+	sek_m,
+	salary_level
+FROM
+	main.NEW n ;
 
+CREATE OR replace TABLE main.NEW AS (
+SELECT
+	experience_level,
+	employment_type,
+	job_title,
+	sek_m,
+	sek_year,
+	remote_ratio,
+	company_size,
+	salary_level,
+FROM
+	main.NEW n);
 
+SELECT * FROM main.NEW n ;
 
 
 

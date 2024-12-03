@@ -67,3 +67,101 @@ from
 where
 	dice = 6;
 
+SELECT
+	FLOOR(RANDOM()* 6 + 1) as dice
+from
+	generate_series(1,10); 
+
+with DiceRolls as (
+SELECT floor(random() * 6 + 1) as dice
+FROM generate_series(1,1000000)
+)
+SELECT AVG(CASE when dice = 6 then 1 else 0 end) * 100 as avarage_six
+from DiceRolls;
+
+
+with dicerolls as ( SELECT floor(random() * 6+1) as dice
+from generate_series(1,100)
+)
+select AVG(CASE WHEN dice = 6 then 1 else 0 end) *100 as avarage_six
+from dicerolls;
+
+with dicerolls as ( select floor(random() * 6+1) as dice
+from generate_series(1,1000)
+)
+select avg(case when dice = 6 then 1 else 0 end) * 100 as avarage
+from dicerolls;
+
+with dicerolls as ( select floor(random() * 6+1 ) as dice
+from generate_series(1,10000)
+)
+select AVG(CASE When dice = 6 then 1 else 0 end) * 100 as avarage
+from dicerolls;
+
+with dicerolls as ( SELECT FLOOR(Random() * 6+1) as dice
+from generate_series(1,100000)
+)
+select avg(CASE when dice = 6 then 1 else 0 end) * 100 as dice_avarage
+from dicerolls;
+
+with rolls as ( select floor(random()* 6+1) as dice from
+generate_series(1,1000000)
+)
+select avg(case when dice = 6 then 1 else 0 end) * 100 as avarage_6 from rolls;
+
+with rolls as (
+SELECT
+	floor(random()* 6 + 1) as dice
+from
+	generate_series(1,
+	100000)
+)
+select
+	avg(case when dice = 6 then 1 else 0 end ) * 100 as avg_6
+from
+	rolls;
+
+with rolls as (
+SELECT
+	FLOOR(RANDOM() * 6 + 1) as dice
+from
+	generate_series(1,
+	1000000000)
+)
+select
+	avg(CASE when dice = 6 then 1 else 0 end)* 100 as avg6
+from
+	rolls;
+--e) the more times you roll, the closer you get to the answer 1/6
+
+with rolls as (
+SELECT
+	floor(random()* 6 + 1 ) as dice
+from
+	generate_series(1,
+	10)
+)
+select
+	AVG(CASE when dice = 6 then 1 else 0 end)* 100 as avg6 from rolls;
+
+with rolls as (
+SELECT
+	FLOOR(random()* 6 + 1) as dice
+from
+	generate_series(1,
+	10)
+)
+select
+	AVG(CASE WHEN dice = 6 then 1 else 0 end)* 100 avg6
+from
+	rolls; 
+
+
+
+
+
+
+
+
+
+

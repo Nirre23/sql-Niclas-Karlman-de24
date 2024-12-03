@@ -23,10 +23,14 @@ from
 ALTER TABLE main.cs ADD COLUMN salary_level ENUM('Low','Medium','High','Insanely high');
 
 
+ALTER TABLE main.NEW ADD COLUMN sek_m INTEGER;
 
+ALTER TABLE main.NEW ADD COLUMN sek_year INTEGER;
+DESC TABLE NEW;
 
+SELECT sek_m,sek_year FROM main.NEW n ;
 
-
+ALTER TABLE main.NEW ADD COLUMN salary_level VARCHAR;
 
 
 

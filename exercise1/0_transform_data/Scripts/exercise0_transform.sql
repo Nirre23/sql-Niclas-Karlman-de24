@@ -263,9 +263,26 @@ FROM
 
 SELECT * FROM main.NEW n ;
 
+SELECT DISTINCT salary_level FROM main.NEW n 
 
-
-
+SELECT
+	count(*),
+	salary_level AS salaries
+FROM
+	main.NEW n
+GROUP BY
+	salary_level 
+	
+SELECT
+	job_title,
+	round(avg(sek_m))
+FROM
+	main.NEW n
+GROUP BY
+	job_title, sek_m 
+ORDER BY
+	sek_m DESC
+LIMIT 10;
 
 
 

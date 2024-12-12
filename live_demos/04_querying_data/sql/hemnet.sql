@@ -1,0 +1,1 @@
+SELECT * from hemnet_data_clean_csv;

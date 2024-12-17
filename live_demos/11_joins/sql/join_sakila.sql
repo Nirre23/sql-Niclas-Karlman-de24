@@ -78,9 +78,31 @@ LEFT JOIN	main.plants p ON p.plant_id = pc.plant_id ;
 
 SELECT FROM main.p
 
+SELECT
+	p.plant_id ,
+	p.type,
+	p.plant_name ,
+	pc.plant_id ,
+	pc.water_schedule ,
+	pc.sunlight
+FROM
+	main.plants p
+left join main.plant_care pc on
+	p.plant_id = pc.plant_id 
 
-
-
+SELECT
+	pc.water_schedule ,
+	pc.sunlight,
+	pc.plant_id ,
+	p.plant_id ,
+	p.type,
+	p.plant_name ,
+from
+	main.plant_care pc
+left join main.plants p on
+	p.plant_id = pc.plant_id 
+	
+	desc table main.plants 
 	
 	
 	

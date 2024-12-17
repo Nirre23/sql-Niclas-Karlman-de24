@@ -1,1 +1,1 @@
-SELECT * from hemnet_data_clean_csv;
+SELECT * from main.hemnet_data_clean_csv

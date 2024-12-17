@@ -52,3 +52,12 @@ SELECT
 	) as word_fixed
 from	
 	staging.sql_glossary sg 
+	
+desc table staging.sql_glossary 
+
+SELECt * from staging.sql_glossary sg 
+
+
+
+
+	

@@ -303,3 +303,9 @@ FROM
 
 SELECT * FROM cs
 
+DESC TABLE cs
+
+SELECT * from cs
+
+SELECT * from main.data_jobs dj 
+
